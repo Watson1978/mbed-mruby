@@ -9,12 +9,11 @@ class AppDelegate
     @main_controller.showWindow(self)
     @main_controller.window.orderFrontRegardless
 
-    mrb = Pointer.new(:object)
     NSLog("awww dang")
-    mrb[0] = mrb_open()
+    mrb = mrb_open()
     NSLog("I want to see the light of day!")
-    mrb_load_string(mrb[0], "class TestClass; end")
-    puts mrb_class_defined(mrb[0], "TestClass") # Should output 1 in the console
+    mrb_load_string(mrb, "class TestClass; end")
+    puts mrb_class_defined(mrb, "TestClass") # Should output 1 in the console
   end
 
 end
